@@ -1,23 +1,872 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "디올뉴 아반떼 장기렌트카",
+      "image": "https://rental.reliabledone.com/images/avante-rental.jpg",
+      "description": "2026년 최신 현대자동차 디올뉴 아반떼 신차장기렌트카 요금 비교, 만 21세 및 26세 연령별 최저가 설계 및 다이렉트 견적 산출 가이드",
+      "brand": {
+        "@type": "Brand",
+        "name": "현대자동차"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "KRW",
+        "lowPrice": "280000",
+        "highPrice": "490000",
+        "offerCount": "24",
+        "priceRange": "KRW 280,000 - KRW 490,000",
+        "url": "https://finance.reliabledone.com/avante-rental"
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg-primary: #fafaf9;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --secondary: #0d9488;
+      --accent: #ea580c;
+      --border-color: #e2e8f0;
+    }
+    
+    body {
+      font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      word-break: keep-all;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 2.5rem;
+      text-align: center;
+      border-bottom: 4px solid var(--primary);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: -0.05em;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    nav {
+      margin-top: 2.5rem;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+
+    nav a:hover, nav a:focus {
+      color: white;
+      background-color: var(--primary);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      background-color: var(--bg-card);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+      margin-bottom: 3rem;
+      border: 1px solid var(--border-color);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      color: #0f172a;
+      border-left: 6px solid var(--primary);
+      padding-left: 1.2rem;
+      margin-top: 0;
+      margin-bottom: 1.8rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      color: #1e293b;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      text-align: justify;
+    }
+
+    strong {
+      color: #000000;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2.5rem 0;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    th, td {
+      padding: 1.2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:hover td {
+      background-color: #fafafa;
+    }
+
+    /* CSS Visual Chart */
+    .chart-container {
+      background-color: #f8fafc;
+      padding: 2rem;
+      border-radius: 16px;
+      margin: 2.5rem 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .chart-bar-wrapper {
+      margin-bottom: 1.5rem;
+    }
+
+    .chart-bar-wrapper:last-child {
+      margin-bottom: 0;
+    }
+
+    .chart-label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .chart-bar-bg {
+      background-color: #e2e8f0;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 36px;
+      width: 100%;
+    }
+
+    .chart-bar {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 1.2rem;
+      color: white;
+      font-size: 0.85rem;
+      font-weight: 900;
+      border-radius: 10px;
+      transition: width 1s ease-in-out;
+    }
+
+    .value-high {
+      background: linear-gradient(90deg, #f97316, #ea580c);
+    }
+
+    .value-mid {
+      background: linear-gradient(90deg, #6366f1, #4f46e5);
+    }
+
+    .value-low {
+      background: linear-gradient(90deg, #14b8a6, #0d9488);
+    }
+
+    /* Calculator Form */
+    .calc-box {
+      background-color: #f1f5f9;
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin: 2.5rem 0;
+      border: 1px solid var(--border-color);
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
+
+    .form-group select, .form-group input {
+      padding: 0.85rem;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      font-size: 0.95rem;
+      background-color: #ffffff;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group select:focus, .form-group input:focus {
+      border-color: var(--primary);
+    }
+
+    .calc-btn {
+      width: 100%;
+      background-color: var(--primary);
+      color: white;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+
+    .calc-btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .calc-result-box {
+      margin-top: 1.8rem;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 12px;
+      border-left: 6px solid var(--secondary);
+      display: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .calc-result-title {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .calc-result-value {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--secondary);
+    }
+
+    .calc-result-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.8rem;
+    }
+
+    /* Consultation Request Form */
+    .lead-form-box {
+      background-color: #ffffff;
+      border: 3px solid var(--primary);
+      border-radius: 20px;
+      padding: 3rem;
+      margin-top: 4rem;
+    }
+
+    .lead-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .lead-form-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .lead-form-full {
+      grid-column: span 2;
+    }
+
+    @media (max-width: 768px) {
+      .lead-form-full {
+        grid-column: span 1;
+      }
+    }
+
+    .form-checkbox-group {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      margin-top: 1.2rem;
+    }
+
+    .form-checkbox-group input {
+      margin-top: 0.3rem;
+    }
+
+    .form-checkbox-group label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .submit-btn {
+      background-color: var(--accent);
+      color: white;
+      font-size: 1.25rem;
+      font-weight: 800;
+      padding: 1.2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      width: 100%;
+      margin-top: 2rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 15px rgba(234, 88, 12, 0.3);
+    }
+
+    .submit-btn:hover {
+      background-color: #d97706;
+      transform: translateY(-2px);
+    }
+
+    /* Tag Cloud */
+    .keyword-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 2rem 0;
+    }
+
+    .keyword-tags span {
+      background-color: #f1f5f9;
+      color: var(--text-muted);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Authority Links */
+    .external-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .external-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 1.5px dashed var(--primary);
+      width: fit-content;
+      transition: color 0.2s, border-color 0.2s;
+      font-size: 1.05rem;
+    }
+
+    .external-links a:hover {
+      color: var(--primary-hover);
+      border-bottom: 1.5px solid var(--primary-hover);
+    }
+
+    footer {
+      background-color: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer p {
+      color: #94a3b8;
+      margin-bottom: 0.6rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>디올뉴 아반떼 장기렌트카 요금 비교 및 2026 다이렉트 최저가 요금제 설계 가이드</h1>
+    <p>경제적인 드라이빙을 선호하는 소비자를 위한 신차 무보증 장기렌트 요금 비교, 연령별 맞춤 컨설팅 가이드</p>
+    <nav aria-label="메인 네비게이션">
+      <ul>
+        <li><a href="#intro">시장 트렌드</a></li>
+        <li><a href="#lineup">모델별 라인업</a></li>
+        <li><a href="#procons">장단점 및 혜택</a></li>
+        <li><a href="#comparison">비용 비교 분석</a></li>
+        <li><a href="#calculator">실시간 견적 계산</a></li>
+        <li><a href="#community">내돈내산 리얼 후기</a></li>
+        <li><a href="#resources">신뢰 정보망</a></li>
+        <li><a href="#consult">무료 견적 신청</a></li>
+      </ul>
     </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+  </header>
+
+  <main>
+    <section id="intro">
+      <h2>2026년 준중형 세단 시장과 디올뉴 아반떼 장기렌트카의 대세 흐름</h2>
+      <p>
+        2026년 기준 대한민국 자동차 시장은 실용성과 고효율을 추구하는 소비 트렌드가 그 어느 때보다 강하게 자리 잡고 있습니다. 특히 준중형 세단의 정석인 현대자동차의 디올뉴 아반떼는 합리적인 유지 비용과 세련된 디자인으로 전 세대를 아우르는 인기를 누리고 있습니다. 차량 보유에 대한 인식이 소유에서 이용 및 공유로 점진적으로 전환되면서, 초기 목돈 마련에 대한 부담이 적은 <strong>신차 장기렌트 아반떼</strong> 상품과 <strong>아반떼 신차장기렌트카</strong> 시장이 눈에 띄게 확장되고 있습니다.
+      </p>
+      <p>
+        차량을 직접 구입할 경우 수반되는 취등록세, 공채 매입금, 연간 세금, 그리고 개별 요율에 따른 높은 자동차 보험료는 예산이 넉넉하지 않은 구매층에게 무거운 걸림돌이 됩니다. 이러한 시점에 매달 정해진 요금만 납부하며 정비와 소모품 교체, 복잡한 세무 처리까지 원스톱으로 해결할 수 있는 장기렌트 방식은 매력적인 솔루션으로 손꼽힙니다. 특히 사회초년생 아반떼 장기렌트 이용률과 주부 아반떼 장기렌트 활용률이 해를 거듭할수록 높아지고 있는 추세입니다.
+      </p>
+      
+      <div class="keyword-tags" aria-label="연관 검색 키워드 모음">
+        <span>20대 아반떼 장기렌트</span>
+        <span>30대 아반떼 장기렌트</span>
+        <span>40대 아반떼 장기렌트</span>
+        <span>50대 아반떼 장기렌트</span>
+        <span>사회초년생 아반떼 장기렌트</span>
+        <span>대학생 아반떼 장기렌트</span>
+        <span>군인 아반떼 장기렌트</span>
+        <span>프리랜서 아반떼 장기렌트</span>
+        <span>개인사업자 아반떼 장기렌트</span>
+        <span>법인사업자 아반떼 장기렌트</span>
+        <span>아반떼 가솔린 1.6 장기렌트</span>
+        <span>아반떼 하이브리드 장기렌트</span>
+        <span>아반떼 N라인 장기렌트</span>
+        <span>아반떼 LPi 장기렌트</span>
+        <span>아반떼 스마트 장기렌트</span>
+        <span>아반떼 모던 장기렌트</span>
+        <span>아반떼 인스퍼레이션 장기렌트</span>
+        <span>아반떼 하이브리드 인스퍼레이션 장기렌트</span>
+        <span>아반떼 모던 하이브리드 장기렌트</span>
+        <span>아반떼 LPi 모던 장기렌트</span>
+        <span>무보증 아반떼 장기렌트</span>
+        <span>초기비용없는 아반떼 장기렌트</span>
+        <span>아반떼 장기렌트 승계</span>
+        <span>아반떼 장기렌트 만기 인수</span>
+        <span>아반떼 장기렌트 반납</span>
+        <span>아반떼 장기렌트 재렌트</span>
+        <span>아반떼 장기렌트 즉시출고</span>
+        <span>주부 아반떼 장기렌트</span>
+        <span>직장인 아반떼 장기렌트</span>
+      </div>
+    </section>
+
+    <section id="lineup">
+      <h2>디올뉴 아반떼 상세 라인업 및 엔진별 특징</h2>
+      <p>
+        소비자가 자신의 생활 환경과 운전 성향에 부합하는 차량을 선택할 수 있도록 현대자동차는 가솔린, 하이브리드, LPi, 그리고 고성능 N라인에 이르기까지 폭넓은 유종과 트림을 제시하고 있습니다. 각 파워트레인별로 렌트 대여료와 연비 효율성, 유지 관리 장점 등이 상이하므로 꼼꼼하게 대조해 보는 것이 현명합니다.
+      </p>
+      
+      <h3>1. 아반떼 가솔린 1.6 장기렌트</h3>
+      <p>
+        전체 가입자 중 가장 높은 비중을 차지하는 범용 모델입니다. 합리적인 차값 덕분에 초기 설정되는 월 렌트 요금 자체가 상대적으로 저렴하다는 것이 큰 이점입니다. 옵션 구성에 따라 가성비 위주의 <strong>아반떼 스마트 장기렌트</strong>, 필수 편의사양이 가득 탑재된 주력 등급인 <strong>아반떼 모던 장기렌트</strong>, 그리고 최상위 편의성을 갖춘 프리미엄 품격의 <strong>아반떼 인스퍼레이션 장기렌트</strong> 세부 종류로 나누어 볼 수 있어 예산 계획에 능동적으로 대처할 수 있습니다.
+      </p>
+
+      <h3>2. 아반떼 하이브리드 장기렌트</h3>
+      <p>
+        연간 주행거리가 15,000km를 초과하는 운전자들에게 가장 높은 호응을 얻고 있는 파워트레인입니다. 탁월한 공인 연비와 정숙한 주행 질감으로 인기가 높으며, 세련된 정비 인프라를 지탱하는 <strong>아반떼 모던 하이브리드 장기렌트</strong>와 최상급 운전 보조 기능이 적용된 <strong>아반떼 하이브리드 인스퍼레이션 장기렌트</strong> 등급이 시장에서 큰 축을 담당하고 있습니다. 차값 자체는 가솔린 모델보다 비싸지만, 절감되는 기름값을 종합적으로 반영할 때 연간 누적 실부담은 더 유익해지는 경우가 많습니다.
+      </p>
+
+      <h3>3. 아반떼 LPi 및 N라인 모델</h3>
+      <p>
+        경제성을 최우선으로 고려하는 소상공인이나 가스차 매력을 선호하는 장거리 출퇴근 직장인이라면 <strong>아반떼 LPi 장기렌트</strong> 및 <strong>아반떼 LPi 모던 장기렌트</strong>가 훌륭한 해답이 됩니다. 반면, 드라이빙의 감성과 스포티한 출력을 갈망하는 마니아 계층이나 개성을 추구하는 젊은 고객이라면 날렵하게 다듬어진 익스테리어와 향상된 주행 성능을 지닌 <strong>아반떼 N라인 장기렌트</strong>가 탁월한 대안을 마련해 드립니다.
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>파워트레인 및 트림명</th>
+            <th>기본 차량 가격 (원)</th>
+            <th>연간 자동차세 (원)</th>
+            <th>공인 복합 연비 (km/L)</th>
+            <th>주요 권장 대상</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>가솔린 1.6 스마트</td>
+            <td>19,950,000</td>
+            <td>290,000</td>
+            <td>15.3</td>
+            <td>최소 비용 지향 사회초년생, 대학생</td>
+          </tr>
+          <tr>
+            <td>가솔린 1.6 모던</td>
+            <td>22,700,000</td>
+            <td>290,000</td>
+            <td>14.8</td>
+            <td>실용적 성능 선호 직장인, 무보증 계약자</td>
+          </tr>
+          <tr>
+            <td>가솔린 1.6 인스퍼레이션</td>
+            <td>26,900,000</td>
+            <td>290,000</td>
+            <td>14.3</td>
+            <td>프리먼 옵션 선호 주부, 30대 패밀리카</td>
+          </tr>
+          <tr>
+            <td>1.6 하이브리드 모던</td>
+            <td>25,800,000</td>
+            <td>290,000</td>
+            <td>21.1</td>
+            <td>연간 주행거리 2만km 이상 프리랜서</td>
+          </tr>
+          <tr>
+            <td>1.6 하이브리드 인스퍼레이션</td>
+            <td>29,500,000</td>
+            <td>290,000</td>
+            <td>21.1</td>
+            <td>유지비 절감과 최첨단 안전을 원하는 40대</td>
+          </tr>
+          <tr>
+            <td>1.6 LPi 모던</td>
+            <td>21,100,000</td>
+            <td>290,000</td>
+            <td>10.5</td>
+            <td>유류비 원가를 아끼고자 하는 개인사업자</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="procons">
+      <h2>아반떼 장기렌트카의 실질적인 장점과 단점 비교</h2>
+      <p>
+        신차 출고 수단으로 장기렌트를 선호하는 현상은 단순히 마케팅 요소 때문이 아니라 사용 과정에서 축적되는 경제적 효용이 실존하기 때문입니다. 그러나 서비스 성격상 면밀히 살펴보아야 할 부정적 요소들도 공존하므로 종합적인 관점에서의 <strong>장단점</strong> 이해가 필수로 요구됩니다.
+      </p>
+
+      <h3>계약 이행 시 마주하는 핵심 장점</h3>
+      <p>
+        첫째, 초기비용 부담이 전혀 없는 <strong>초기비용없는 아반떼 장기렌트</strong> 설계가 유연하게 가능합니다. 무담보 신용 심사 제도를 거쳐 서울보증보험의 증권 발행마저 생략하는 완전한 <strong>무보증 아반떼 장기렌트</strong> 조건으로 차량 계약을 승인받을 수 있어 당장의 현금 지출이 어려운 신규 계약자나 대학생에게 적합합니다.
+      </p>
+      <p>
+        둘째, 매년 부과되는 자동차세와 의무적으로 갱신해야 하는 개별 자동차 보험료가 월 대여 요금 내에 전면 내재되어 있습니다. 특히 운전 경력이 상대적으로 짧은 20대 대학생 아반떼 장기렌트 가입 희망자나 운전 경력이 부족한 신규 운전자의 경우 개별 자차 가입 시 1년에 수백만 원에 육박하는 요금이 산출되는 경향이 있으나, 장기렌트를 이용하면 렌터카 사의 단체 다이렉트 보험 요율이 일괄 적용되어 전반적인 연간 지출을 극적으로 낮추는 지름길이 됩니다.
+      </p>
+      <p>
+        셋째, 금융권 채무나 잡음 섞인 부채로 등재되지 않아 개인 신용점수 하락 우려가 일절 없습니다. 차량 할부 실행 시에는 신용 거래에 채무로 인식되지만, 렌탈 서비스는 임대 자산의 성격을 가지므로 대출 한도 하향이나 이자 증가 등 금융 거래 상의 불이익이 발생하지 않습니다.
+      </p>
+      <p>
+        넷째, 법인 및 개인사업자 아반떼 장기렌트 계약의 경우 매달 정기적으로 발생되는 지출 비용을 세무상 손비로 완벽히 처리할 수 있어 소득세나 종합소득세 과세표준 구간을 큰 폭으로 낮추는 절세 효과를 충실하게 달성해 줍니다.
+      </p>
+
+      <h3>간과할 수 없는 몇 가지 단점</h3>
+      <p>
+        가장 먼저 번호판 규정을 꼽을 수 있습니다. 장기렌트 전용 차량에는 의무적으로 하, 허, 호로 분류되는 임대 전용 식별 번호판이 부착되므로, 이에 대한 개인적인 이질감이 있거나 품위 유지를 극히 강조하는 소비자라면 아쉬운 대목이 될 수 있습니다.
+      </p>
+      <p>
+        또한 계약 기간 내내 개인이 무사고 커리어를 아무리 훌륭하게 누적하더라도 개인 명의의 공식 운전 경력으로 인정받기 어렵습니다. 장기간 무사고를 유지해 개인 보험 요율을 크게 경감하고 싶으신 분들이라면 이러한 특성 차이를 정확히 숙지해야 합니다. 마지막으로 정해진 중도 해약 기간 이전에 계약을 해지할 시 적지 않은 위약금이 책정되므로 피치 못하게 승계를 진행해야 하거나 승계자를 물색해야 하는 복잡함이 나타날 수 있습니다.
+      </p>
+    </section>
+
+    <section id="comparison">
+      <h2>할부 구매 vs 리스 vs 장기렌트 연간 실지출 비교</h2>
+      <p>
+        차량을 마련할 때 맞닥뜨리는 대표적인 세 가지 유형의 정량적 격차를 비교 분석해 보면 지출 편차가 얼마나 뚜렷한지 극적으로 와닿습니다. 아래의 시뮬레이션은 아반떼 가솔린 1.6 모던 트림(차량가 22,700,000원 상당)을 48개월 동안 운행한다고 가정했을 때, 취등록세, 자동차세, 연간 의무 보험금(만 26세 미만 초보운전 기준 적용)을 결합하여 산출해 낸 시각적 자료입니다.
+      </p>
+
+      <div class="chart-container">
+        <div class="chart-bar-wrapper">
+          <span class="chart-label">할부 구매 시뮬레이션 (초기 취등록세 및 고율 개인보험료 포함 연평균 추산)</span>
+          <div class="chart-bar-bg">
+            <div class="chart-bar value-high" style="width: 90%;">월 평균 지출액 약 640,000원</div>
+          </div>
+        </div>
+        <div class="chart-bar-wrapper">
+          <span class="chart-label">자동차 리스 시뮬레이션 (취등록세 포함, 세금/보험료 개별 개도 적용)</span>
+          <div class="chart-bar-bg">
+            <div class="chart-bar value-mid" style="width: 78%;">월 평균 지출액 약 530,000원</div>
+          </div>
+        </div>
+        <div class="chart-bar-wrapper">
+          <span class="chart-label">장기렌트 다이렉트 (보험료, 자동차세, 부대비용 일체 포함 일괄 요금제)</span>
+          <div class="chart-bar-bg">
+            <div class="chart-bar value-low" style="width: 53%;">월 평균 지출액 약 380,000원</div>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        보시다시피 개별적으로 가입을 준비해야 하는 보험 요금이 극도로 비싸게 산출되는 젊은 운전자 군일수록, 모든 비용 요소들이 일목요연하게 일원화된 장기렌트 이용 시에 가장 높은 가성비를 실현할 수 있습니다. 할부와 리스는 개인 부채로 산정될 뿐 아니라 만기 시점 차량 중고 시세 폭락에 대한 감가상각 위험성을 오롯이 감수해야 하지만, 렌탈 방식은 만기 도래 시 부담 없이 반납하거나 시세 차익이 생겼을 시 선택적으로 만기 인수를 추진하고, 필요할 경우 편리하게 재렌트를 타진해 볼 수 있어 선택의 자율성이 압도적으로 확장됩니다.
+      </p>
+    </section>
+
+    <section id="calculator">
+      <h2>실시간 아반떼 장기렌트 모의 계산기</h2>
+      <p>
+        선호하는 차량 조건에 상응하는 합리적인 월 렌트 요금 수준은 얼마 정도일까요? 에이전트를 통한 대면 견적 단계로 향하기 이전에, 아래의 <strong>계산기</strong>를 조작하여 실시간 대여 비용을 모의로 시뮬레이션 해 보십시오. 입력란의 파워트레인 및 트림 유형과 희망하는 기간 조건을 입력하시면 본인 재정 한도에 최적화된 결과치가 즉시 출력됩니다.
+      </p>
+
+      <div class="calc-box">
+        <div class="calc-grid">
+          <div class="form-group">
+            <label for="engine">엔진 종류 및 파워트레인 선택</label>
+            <select id="engine">
+              <option value="gasoline">가솔린 1.6 가솔린 엔진</option>
+              <option value="hybrid">디올뉴 1.6 하이브리드 고효율</option>
+              <option value="lpi">LPi 1.6 LPG 엔진</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="trim">트림 등급 세부 설정</label>
+            <select id="trim">
+              <option value="smart">스마트 가성비형 트림</option>
+              <option value="modern">모던 스마트 허브 핵심 트림</option>
+              <option value="inspiration">인스퍼레이션 프리미엄 풀옵션</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="period">의무 이용 계약 기간</label>
+            <select id="period">
+              <option value="36">36개월 약정 조건</option>
+              <option value="48">48개월 기본 권장 기간</option>
+              <option value="60">60개월 최저 대여료 기간</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="prepay">초기 담보 보증 형태 및 납부율</label>
+            <select id="prepay">
+              <option value="zero">0% 무보증 무담보 조건</option>
+              <option value="deposit10">보증금 10% 예치금 설정</option>
+              <option value="deposit20">보증금 20% 예치금 설정</option>
+              <option value="deposit30">보증금 30% 예치금 설정</option>
+              <option value="prepay10">선납금 10% 원금 차감 적용</option>
+              <option value="prepay20">선납금 20% 원금 차감 적용</option>
+              <option value="prepay30">선납금 30% 원금 차감 적용</option>
+            </select>
+          </div>
+          <div class="form-group" style="grid-column: span 2;">
+            <label for="age">가입자 연령 기준 (보험 적용 범위 범위)</label>
+            <select id="age">
+              <option value="age26">만 26세 이상 성인 운전자 보증</option>
+              <option value="age21">만 21세 이상 사회초년생, 대학생 운전자</option>
+            </select>
+          </div>
+        </div>
+        <button class="calc-btn" onclick="calculateRental()">월 예상 대여료 산출하기</button>
+
+        <div class="calc-result-box" id="calc-result-box">
+          <div class="calc-result-title">자가 진단 맞춤 견적 결과 안내</div>
+          <div class="calc-result-value" id="calc-result-val">0 원</div>
+          <div class="calc-result-desc">
+            위 산정 비용은 2026년 표준 요율표를 기준으로 측정된 시뮬레이션 결과치이며, 매달 진행되는 카드사 특별 프로모션 및 에이전트 최저가 특판 혜택 적용 방법에 따라 세부 실납부 요금은 상향 혹은 하향 평준화될 수 있습니다.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="community">
+      <h2>대형 커뮤니티의 내돈내산 리얼 출고 후기</h2>
+      <p>
+        의사 결정을 앞두고 흔히 정보 검색을 진행하는 포털사이트 검색 영역이나 차량 전문 정보망에는 마케팅 대행사들의 형식적인 광고 문구가 주를 이룹니다. 이 때문에 실질적인 이득을 취하려면 실제 소비자들이 가감 없이 의견을 나누는 인터넷 커뮤니티 내부의 생생한 목소리를 들여다보는 과정이 필수입니다.
+      </p>
+      <p>
+        유명 온라인 커뮤니티인 <strong>디시</strong>, <strong>보배드림</strong>, <strong>펨코</strong>, <strong>에펨코리아</strong> 등의 세부 게시판에서 디올뉴 아반떼 장기렌트카 관련 <strong>내돈내산</strong> 실생활 밀착형 <strong>후기</strong> 데이터베이스를 면밀히 들여다보면 실전에 활용 가능한 소중한 노하우들을 획득할 수 있습니다.
+      </p>
+      <p>
+        가장 유익하게 언급되는 주제 중 하나는 소위 아반떼 최저가 출고 <strong>좌표</strong> 및 전국 최저 요금 <strong>성지</strong>를 어떻게 찾아냈는가 하는 부분입니다. 커뮤니티 이용자들은 공식 대리점을 통하지 않고 다이렉트 온라인 비교견적 사이트를 이용해 렌탈사 간의 마진율 경쟁을 유도하는 방식이 실비용 절감에 가장 큰 보탬이 된다고 입을 모읍니다.
+      </p>
+      <p>
+        또한 신차 인수 계약 과정에서 보장받은 비공식 <strong>현금지원</strong> 실상이나 초기 비용 상쇄가 가능한 <strong>지원금</strong> 집행 경험담, 그리고 특판 영업사원이 추가적으로 전달해 주는 고급 틴팅 시공이나 차량용 사은품 블랙박스 무상 장착 등 실물 <strong>사은품</strong> 품질에 관한 솔직한 후기도 정리가 잘 되어 있습니다. 이외에도 제휴 신용카드 연계를 통해 달성한 추가적인 요금 <strong>할인</strong> 혜택과 특판 대여사들의 <strong>상품</strong>이나 대기업 제휴 <strong>상품권</strong> 수령 <strong>이벤트</strong> 성공 스토리 등도 실시간으로 투명하게 중계되고 있어 계약 실행 단계 이전에 필독해야 할 유용한 참고 자료가 됩니다.
+      </p>
+    </section>
+
+    <section id="resources">
+      <h2>공신력 있고 신뢰할 수 있는 공식 정보망 안내</h2>
+      <p>
+        더 안전하고 정교한 자동차 법률 정보와 2026년 개정된 자동차 관련 지침 및 주소 이전 전입신고, 도로교통 행정 시스템을 파악하시려면 아래의 신뢰도 높은 국가 공인 기관들의 정보를 순서대로 직접 확인해 보실 것을 권장합니다.
+      </p>
+      <div class="external-links">
+        <a href="https://leasedtruthh.withusrizz.com" target="_blank" rel="noopener">장기렌트금융 가이드 - 디올뉴 아반떼 다이렉트 분석 데이터 종합 정보</a>
+        <a href="https://namu.wiki/w/현대 아반떼" target="_blank" rel="noopener">나무위키 - 현대자동차 디올뉴 아반떼 세대별 연혁 및 모델 개발 정보</a>
+        <a href="https://www.car365.go.kr" target="_blank" rel="noopener">국토교통부 자동차365 - 통합 차량 시세 관리, 중고차 이력 정보 시스템</a>
+      </div>
+    </section>
+
+    <section id="consult">
+      <h2>디올뉴 아반떼 1:1 다이렉트 무료 맞춤 견적 신청</h2>
+      <p>
+        인터넷 검색 포털사이트나 모바일 정보망인 <strong>네이버</strong>, <strong>구글</strong> 또는 차량 시승 영상의 성지인 <strong>유튜브</strong>를 헤매며 낭비하는 시간을 대폭 줄여보세요. 전문 에이전시의 1:1 비대면 프리미엄 <strong>컨설팅</strong>과 밀착형 친절 <strong>상담</strong>을 즉시 제공해 드립니다.
+      </p>
+      <p>
+        최근에는 핀테크 자산관리 솔루션인 <strong>토스</strong> 연동 연계형 대여 조건 필터링이나 차세대 초거대 지능형 검색 인프라인 <strong>제미나이</strong>, <strong>챗지피티</strong> 같은 진보된 스마트 <strong>AI</strong> 엔진을 결합하여 개개인의 월 지출 여력과 신용 점수에 적합한 안성맞춤형 프로모션 특판을 수초 만에 매칭하는 시스템이 혁신을 거듭하고 있습니다.
+      </p>
+      <p>
+        더욱 빠르고 명확하게, 대리점 에이전시 영업 수수료를 말끔히 도려내어 제일 저렴한 요율만 선별한 2026 다이렉트 렌탈 최저 견적을 원하신다면 아래의 정밀 입력 양식 데이터를 상세히 작성하여 송신해 주십시오. 전국 우수 대여사와 밀착 업무 제휴가 체결된 다이렉트 전담 <strong>고객센터</strong> 및 카카오톡, 텔레그램 실시간 정보 안내팀이 가장 유용한 제안을 제공해 드릴 것입니다.
+      </p>
+
+      <div class="lead-form-box">
+        <form onsubmit="event.preventDefault(); alert('견적 신청이 정상 접수되었습니다. 담당 에이전트 배정 후 10분 이내에 신속히 연락해 드리겠습니다.');">
+          <div class="lead-form-grid">
+            <div class="form-group">
+              <label for="user-name">신청인 실명</label>
+              <input type="text" id="user-name" placeholder="홍길동" required>
+            </div>
+            <div class="form-group">
+              <label for="user-phone">휴대전화 연락처</label>
+              <input type="tel" id="user-phone" placeholder="010-1234-5678" required>
+            </div>
+            <div class="form-group">
+              <label for="preferred-model">희망하는 아반떼 엔진 및 유종</label>
+              <select id="preferred-model">
+                <option value="gas16">아반떼 가솔린 1.6 가성비 모델</option>
+                <option value="hybrid16">아반떼 1.6 하이브리드 고연비 모델</option>
+                <option value="lpi16">아반떼 LPi 1.6 일반 가스 모델</option>
+                <option value="nline">아반떼 N라인 고성능 스포티 모델</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="preferred-trim">희망하는 세부 장기렌트 트림 등급</label>
+              <select id="preferred-trim">
+                <option value="smart">스마트 가성비 등급</option>
+                <option value="modern">모던 스마트 허브 중심 등급</option>
+                <option value="inspiration">인스퍼레이션 프리미엄 풀옵션 등급</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="contract-term">희망 약정 개월 수</label>
+              <select id="contract-term">
+                <option value="m36">36개월</option>
+                <option value="m48">48개월</option>
+                <option value="m60">60개월</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="user-age">계약 대상자 실연령 조건</label>
+              <select id="user-age">
+                <option value="age26">만 26세 이상</option>
+                <option value="age21">만 21세 이상</option>
+              </select>
+            </div>
+            <div class="form-group lead-form-full">
+              <label for="user-memo">추가 요청사항 및 전용 희망 옵션 (자유 기술)</label>
+              <input type="text" id="user-memo" placeholder="예: 어두운 외장 색상 원함, 블랙박스 및 썬팅 상급 희망, 무보증 승인 여부 알고 싶음 등">
+            </div>
+          </div>
+
+          <div class="form-checkbox-group">
+            <input type="checkbox" id="agree-privacy" required checked>
+            <label for="agree-privacy">개인정보 수집, 이용 동의 및 대여 견적 상담 목적 제3자 제공, 맞춤 컨설팅 제안 안내에 관한 약관에 전적으로 동의합니다. (필수)</label>
+          </div>
+          <div class="form-checkbox-group">
+            <input type="checkbox" id="agree-marketing" checked>
+            <label for="agree-marketing">실시간 아반떼 즉시출고 선착순 정보 알림과 카카오톡, 텔레그램 프로모션, 사은품 이벤트 등 유용한 마케팅 혜택 소식 알림 수신에 동의합니다. (선택)</label>
+          </div>
+
+          <button type="submit" class="submit-btn">최저가 견적 및 다이렉트 무료상담 즉시 신청하기</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  
+  <script>
+    function calculateRental() {
+      const engine = document.getElementById('engine').value;
+      const trim = document.getElementById('trim').value;
+      const period = parseInt(document.getElementById('period').value);
+      const prepay = document.getElementById('prepay').value;
+      const age = document.getElementById('age').value;
+
+      let basePrice = 0;
+      if (engine === 'gasoline') {
+        if (trim === 'smart') basePrice = 310000;
+        else if (trim === 'modern') basePrice = 360000;
+        else if (trim === 'inspiration') basePrice = 430000;
+      } else if (engine === 'hybrid') {
+        if (trim === 'smart') basePrice = 380000;
+        else if (trim === 'modern') basePrice = 440000;
+        else if (trim === 'inspiration') basePrice = 490000;
+      } else if (engine === 'lpi') {
+        if (trim === 'smart') basePrice = 330000;
+        else if (trim === 'modern') basePrice = 380000;
+        else if (trim === 'inspiration') basePrice = 450000;
+      }
+
+      let periodFactor = 1.0;
+      if (period === 36) periodFactor = 1.15;
+      else if (period === 48) periodFactor = 1.05;
+      else if (period === 60) periodFactor = 1.0;
+
+      let calculated = basePrice * periodFactor;
+
+      if (prepay === 'deposit10') calculated -= (basePrice * 0.02);
+      else if (prepay === 'deposit20') calculated -= (basePrice * 0.04);
+      else if (prepay === 'deposit30') calculated -= (basePrice * 0.06);
+      else if (prepay === 'prepay10') calculated -= (basePrice * 0.12);
+      else if (prepay === 'prepay20') calculated -= (basePrice * 0.24);
+      else if (prepay === 'prepay30') calculated -= (basePrice * 0.36);
+
+      if (age === 'age21') {
+        calculated += 35000;
+      }
+
+      const finalVal = Math.round(calculated);
+      const formatted = finalVal.toLocaleString() + ' 원';
+
+      document.getElementById('calc-result-val').innerText = formatted;
+      document.getElementById('calc-result-box').style.display = 'block';
+    }
+  </script>
+  
